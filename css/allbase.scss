@@ -1,0 +1,337 @@
+@charset "UTF-8";
+
+// set
+//----------------------------------------------------------------
+
+$bg-gap:            4%!default;         //主体边距
+
+// color
+// --------------------
+
+$green:             #40d52c!default;
+$red:               red!default;
+$lightred:          #f43631!default;
+$yellow:            #ffd303!default;
+$orangeRed:         #ff7200!default;
+$gray:              #999!default;
+$black:             #333!default;
+$blue:              #3eb0f8!default;
+$white:             #fff!default;
+$lightgray:         #aaaaaa!default;
+
+// font color
+$title-font:        #333 !default;
+$base-font:         #666 !default;
+$light-font:        #999 !default;
+$link-font:         $base-font !default;
+$gray-font:         #8c8c8c !default;
+$lighter-font:      #c4c4c4 !default;
+// bg & border
+$bg-color:          #e4e4e4!default;
+$bg-light:          #f2f2f2!default;
+
+// 主色
+//$main-color:        #077fff;
+$main-color:         #ef6c00;
+$assist-color:       #07a6f9;
+// font
+// --------------------
+// 4rem     70
+// 2.4rem   48
+// 2.25rem   44
+// 2.18rem   42
+// 2.1rem   40
+// 1.68rem  32
+
+// 2rem     36-
+// 1.6rem   30-
+// 1.5rem   28-
+// 1.3rem   26- 默认
+// 1.22rem  24-
+// 1.1rem   22
+// 1rem     18-20
+
+$h1-size:           2rem!default;
+$h2-size:           1.68rem!default;
+$h3-size:           1.5rem!default;
+$base-size:         1.3rem!default; //默认
+$small-size:        1.22rem!default;
+$milli-size:        1.1rem!default;
+$micro-size:        1rem!default;
+
+%XXL{font-size:     $h1-size!important;}
+%XL {font-size:     $h2-size!important;}
+%L  {font-size:     $h3-size!important;}
+%M  {font-size:     $base-size!important;} //默认
+%S  {font-size:     $small-size!important;}
+%XS {font-size:     $milli-size!important;}
+%XXS{font-size:     $micro-size!important;}
+
+
+
+// radius
+// --------------------
+$base-radius:       5px!default;
+$small-radius:      .3em!default;
+$large-radius:      8px!default;
+
+
+// z-index
+// --------------------
+$z-idx-0:           -1!default;
+$z-idx-1:           9!default;          //默认
+$z-idx-2:           99!default;
+$z-idx-3:           999!default;
+$z-idx-10000:       10000 + 1;
+
+
+$gap:           10px;
+$border-color:  #e4e4e5;
+
+
+// .red{color: lighten($red,20%) !important;}
+.red{color:         $red !important;}
+.orangeRed{color:   $orangeRed!important;}
+.yellow{color:      $yellow!important;}
+.gray{color:        $gray!important;}
+.blue{color:        $blue!important;}
+.black{color:      $black!important;}
+.green{color:      $green!important;}
+.main-color{color: $main-color!important;}
+
+.user-select-text{-webkit-user-select:text;}
+.user-select-none{-webkit-user-select:none;}
+/* 事件焦点不显示 */
+.tap-none{-webkit-tap-highlight-color:rgba(0,0,0,.0);}
+/* 过长晃示省略号... */
+.ell,%ell{
+    text-overflow: ellipsis;//当对象内文本溢出时显示省略标记(...)说明
+    overflow: hidden;
+    white-space: nowrap;
+}
+/* 透明 */
+%invisible{
+    color:transparent!important;
+    //-webkit-user-select:none; // 禁选
+    text-shadow:none!important;
+}
+.center{text-align:center!important;}
+.left{text-align:left!important;}
+.right{text-align:right!important;}
+.in-b{display: inline-block!important;}
+.no-border{border:none!important;}
+// html body
+// ----------------------------------------------------------
+//重置盒模型box-sizing
+%box-s{
+    -webkit-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+html{
+    font-size: 10px;
+    min-height: 100%;
+    background-color:   $bg-color;
+    @extend %box-s;
+}
+
+body{
+    color:  $base-font;
+    font:   13px Arial;
+    -webkit-text-size-adjust: 100%!important; // 禁止字体缩放 重置字体
+    -webkit-user-select: none;      // 禁止选择文字
+    -webkit-touch-callout: none;    // 禁止复制、另存
+}
+a{
+    color:  $link-font;
+    text-decoration: none;
+    outline: none;
+    &:visited{
+        color:inherit;
+    }
+}
+
+i,em{font-style: normal;}
+button,input,select,textarea{color:$base-font;font:$h2-size/1 Arial;outline:none;}
+
+%m0{
+    margin: (-$bg-gap+-.1) (-$bg-gap+-.3) 0;
+    @extend %box-s;
+}
+.mp0{margin: 0!important;padding: 0!important;}
+// .mp0-patch{margin-left: -$gap!important;margin-right: -$gap!important;}
+// li.mp0{list-style-type: none;}
+
+b,strong{color:#666;}
+
+
+// 全屏
+// ----------------------------------------------------------
+@mixin full-screen( $full-position:absolute, $full-z:$z-idx-1, $full-bg:none ){
+    position:   $full-position;
+    z-index:    $full-z;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $full-bg;
+}
+
+.full-screen{
+    @include full-screen(fixed, $z-idx-10000 +1, rgba(0,0,0,.4));
+}
+
+
+
+// full-screen END --------------
+
+
+
+
+
+
+// forme
+//-----------------------------------------------------
+$base-color:            #ccc;
+$input-color:           $base-color;
+
+%input{
+    max-width:100%;
+    width: 100%;
+    margin: 0;
+    padding: .5em;
+    border: 1px #caccc0 solid;
+    border-top-color:#a9ac9a;
+    box-shadow: 0 0 2px #fff,0 1px 2px rgba(0,0,0,0.1) inset;
+    border-radius:      $base-radius;
+
+    resize: none;
+    -webkit-appearance: none;
+    @extend %box-s;
+}
+
+::-webkit-input-placeholder {color:$gray;}
+
+
+// button
+//-----------------------------------------------------
+
+%btn-shadow{
+    -webkit-text-shadow:0 -1px 0 rgba(0,0,0,.3)!important;
+    text-shadow:0 -1px 0 rgba(0,0,0,.3)!important;
+}
+%btn-shadow-1{
+    -webkit-text-shadow:0 1px 0 rgba(0,0,0,.3)!important;
+    text-shadow:0 1px 0 rgba(0,0,0,.3)!important;
+}
+%btn-shadow-0{
+    -webkit-text-shadow:none!important;
+    text-shadow:none!important;
+}
+
+%btn{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    margin: .5em 0;
+    padding: .6em 2em .6em;
+    font-size: $h3-size;
+    line-height: 1;
+    text-align: center;
+    text-decoration:none;
+    // -webkit-text-shadow:0 1px 1px #fff;
+    // text-shadow:0 1px 1px #fff;
+    @extend %box-s;
+}
+
+@mixin btn-hollow( $this-color, $btn-radius:$base-radius ){
+    @extend %btn;
+    background: transparent;
+    border:1px solid $this-color;
+    border-radius: $btn-radius;
+    color: $this-color!important;
+}
+
+
+@mixin btn( $btn-bg1, $btn-color:$base-font, $btn-radius:$base-radius, $btn-bg2: false){
+    @extend %btn;
+    background:$btn-bg1;
+    @if $btn-bg2{
+        background: -webkit-gradient(linear, 0 0, 0 100%, from($btn-bg1), to($btn-bg2));
+        background: -webkit-linear-gradient(top, $btn-bg1, $btn-bg2);
+    }
+    border-radius:$btn-radius;
+    color:$btn-color;
+}
+
+.btn-box{
+    margin:20px 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    width: 100%;
+    @extend %box-s;
+
+    // &[class^="grid"],
+    // &[class*=" grid"]{
+        [class^="btn"]{
+            display: block;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -ms-flex: 1;
+            margin: 0 5px;
+            width: 50%;
+            &:first-of-type{margin-left: 0;}
+            &:last-of-type{margin-right: 0;}
+            &:only-of-type{width: 100%;}
+        }
+    // }
+    &.grid1-1{
+        [class^="btn"]:first-of-type:not(:only-of-type),
+        [class^="btn"]:nth-of-type(2):not(:only-of-type){
+            // -webkit-box-flex: 1;
+            // -moz-box-flex: 1;
+            // -ms-flex: 1;
+            width: 50%;
+        }
+        // [class^="btn"]:only-of-type{width: 100%;}
+    }
+
+    &.block [class*="btn"],
+    .block[class*="btn"]{
+        display: block;
+        margin: 1.2em auto;
+        width: inherit!important;
+    }
+}
+
+
+.btn{
+    @include btn(#efefef);
+    &.blue{
+        background: $blue!important;
+        color:#fff;
+    }
+}
+.btnR{
+    @include btn(#f7675f, #fff);
+}
+.btnG{
+    @include btn($green, #fff);
+}
+%btnY{
+    @include btn(#fd5505, #fff);
+    @extend %btn-shadow;
+    border-width:0 0 1px;
+    font-weight:bold;
+}
+// .btnGrey{
+//  @include btn(#efefef, #efefef);
+//  border-color:#e7e7e7;
+// }
+.btnDisabled{
+    @include btn(#efefef, #aaa);
+    cursor: default;
+}

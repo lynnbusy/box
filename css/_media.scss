@@ -1,0 +1,56 @@
+
+
+// 6以上机型适配
+// $h1-size:           2rem!default;
+// $h2-size:           1.68rem!default;
+// $h3-size:           1.5rem!default;
+// $base-size:         1.3rem!default; //默认
+// $small-size:        1.22rem!default;
+// $milli-size:        1.1rem!default;
+// $micro-size:        1rem!default;
+
+
+@media (min-width:375px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 &6plus*/
+    .total-rank{
+        dl{
+            dt{
+                padding: 14px 0px 14px 15px;
+                section{
+                    p{
+                        font-size: 1.6rem;
+                        &.p-info{
+                            font-size: 1.22rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .movie-info{
+        h2{
+            font-size: 2.25rem;
+        }
+    }
+    .circle-info{
+        ul{
+            li{
+                p.circle-data{
+                    font-size: 1.22rem;
+                }
+            }
+        }
+    }
+    .common-table{
+        li{
+            line-height: 2.6;
+            .start,.middle,.end{
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+
+
+
+
+}

@@ -1,0 +1,140 @@
+@charset "UTF-8";
+// loading
+// ---------------------------------------
+.m-hide {
+    display: none !important;
+    opacity: 0;
+}
+.loading{
+    position:fixed;
+    z-index: $z-idx-3 *999;
+    width: 100%;
+    height:100%;
+    line-height: 66px;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    border-radius: 4px;
+    background:rgba(#000,.5);
+
+    text-align: center;
+
+}
+// Whom wanna change loading images:
+// 
+// please change both loading-wrapper-size and background-size to ensure
+// the loading display perfect under retina screen
+// from Hux
+.loading i, %loading{
+    display:inline-block;
+    width:55px;
+    height:55px;
+    // width:133px;
+    // height:58px;
+    // -webkit-animation:my_fhload 1.8s linear infinite;
+    //-webkit-animation:my_fhload 1s infinite;
+
+    position:absolute;
+    left: 50%;
+    top: 40%;
+    //margin-left:-10px;
+    // margin: -10px auto auto -10px;
+    -webkit-transform:translate(-50%,0%);
+    // border-radius:200px;
+    // border:2px solid #ddd;
+    // border-color: #444 #555 #888 #ddd;
+    margin-top: 5px;
+    background: url(../icon/loading.gif) no-repeat;
+    background-size: 55px auto;
+    border-radius: 14px;
+    // background-size: 100% auto;
+    // background: url(img/loading_0.png) no-repeat;
+    // background: url(img/loading_0.gif) no-repeat 85% 0;
+    // -webkit-background-size:100px auto;
+    // background-size: contain;
+    // -webkit-animation: my_XQ 1s infinite;
+    // -webkit-animation: angelsprite1 .4s infinite steps(1);
+    // opacity: .7;
+    // &:after,
+    // &:before{
+    //     // display: none;
+    //     // content: "loading...";
+    //     content: "请稍候...";
+    //     // content: "国庆购票高峰\a 系统繁忙时 请耐心等待";
+    //     // content: "蓝色骨头 10.17上映";
+    //     // content: "蓝色骨头 独家预售";
+    //     position: absolute;
+    //     top: 100%;
+    //     margin-top: 5px;
+    //     // left: -20px;
+    //     // right: -20px;
+    //     width: 100%;
+    //     color: #666;
+    //     // margin-top: 5px;
+    //     text-align: center;
+    //     white-space: pre-wrap;
+    //     font-size: 1.2rem;
+    //     line-height: 1.4;
+    //     // background-color: pink;
+    //     // 4字br
+    //     // width: 4em;
+    //     // left: 50%;
+    //     // -webkit-transform: translate(-50%, 0);
+    // }
+    // &:after{
+    //    content: "系统繁忙时 请耐心等待";
+    //    color: #999;
+    //    margin-top: 1.5em;
+    // }
+
+
+}
+.loading {
+    i{
+        &:after{
+            //content: "加载中...";
+            text-align: center;
+            position: relative;
+            top: 76%;
+            color: #fff;
+            width: 100%;
+            font-size: 1.3rem;
+        }
+    }
+}
+.loading span{
+    position:absolute;
+    left:0;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    font-size:$small-size;
+}
+
+@-webkit-keyframes my_fhload {
+    0% { -webkit-transform: rotate(0deg); }
+    8.32% { -webkit-transform: rotate(0deg); }
+    8.33% { -webkit-transform: rotate(30deg); }
+    16.65% { -webkit-transform: rotate(30deg); }
+    16.66% { -webkit-transform: rotate(60deg); }
+    24.99% { -webkit-transform: rotate(60deg); }
+    25% { -webkit-transform: rotate(90deg); }
+    33.32% { -webkit-transform: rotate(90deg); }
+    33.33% { -webkit-transform: rotate(120deg); }
+    41.65% { -webkit-transform: rotate(120deg); }
+    41.66% { -webkit-transform: rotate(150deg); }
+    49.99% { -webkit-transform: rotate(150deg); }
+    50% { -webkit-transform: rotate(180deg); }
+    58.32% { -webkit-transform: rotate(180deg); }
+    58.33% { -webkit-transform: rotate(210deg); }
+    66.65% { -webkit-transform: rotate(210deg); }
+    66.66% { -webkit-transform: rotate(240deg); }
+    74.9% { -webkit-transform: rotate(240deg); }
+    75% { -webkit-transform: rotate(270deg); }
+    83.32% { -webkit-transform: rotate(270deg); }
+    83.33% { -webkit-transform: rotate(300deg); }
+    91.65% { -webkit-transform: rotate(300deg); }
+    91.66% { -webkit-transform: rotate(330deg); }
+    99.9% { -webkit-transform: rotate(330deg); }
+    100% { -webkit-transform: rotate(0deg); }
+}

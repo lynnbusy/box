@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Lynn's Box </title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="shortcut icon" href="icon/favicon.ico">
+        <link rel="apple-touch-icon" href="icon/iPhone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="icon/iPad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="icon/iPhone@2x.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="icon/iPad@2x.png">
+		<meta content="telephone=no" name="format-detection" />
+        <link rel="stylesheet" href="iconfont/style.css?v306">
+        <link rel="stylesheet" type="text/css" href="css/style.css?v306">
+    </head>
+    <body>
+        <!-- <div class="opening m-hide" id="openShow">
+            <div class="discount" id="closeShow">
+                <div class="time"><span id="sC">3</span>s</div>
+                <div class="skip" id="sN"></div>
+            </div>
+        </div> -->
+        <!-- help block, dirty works. -->
+        <div class="no-data cached" id="no-data">
+            <i id="nodeatIcon" class="no-data-icon"></i>
+            <a id="nodataRefresh" onClick="location.reload();">刷新一下</a>
+        </div>
+        <div class="loading" id="loading"><i></i></div>
+        <div class="toast current- transition" id="toast"></div>
+
+        <!-- app -->
+        <!-- <div advertisingId="19" style="z-index: 1000;top: 46px;"></div> -->
+        <div id="app" style="height: 100%;"></div>
+        <!-- the baseUrl has set to data-main -->
+        <script defer async src="js/lib/require.js" data-main="js/app.js?v306"></script>
+        <script type="text/javascript">
+            document.body.addEventListener('touchstart', function () {});
+        </script>
+        <!-- GA -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','js/analytics.js','ga');
+
+            ga('create', 'UA-58583546-12', 'auto');
+            ga('send', 'pageview');
+
+            // var he = null;
+        </script>
+
+        <script defer src="http://hawkeye.wepiao.com/he.js"></script>
+        <script>
+            window.he = window.he || function() {
+                (he.q = he.q || []).push(arguments)
+            };
+            window.__VERSION_FOR_HE__ = '3.0.0';
+            he('create', 'piaofang');
+            window.__ISWEMOVIESPA__ = true;
+        </script>
+
+        <!-- <script type="text/javascript"src="http://ads.wepiao.com/advertisement/js/ad-min.js"></script> -->
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微票儿票房分析下载</title>
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/zepto.min.js"></script>
+    <script src="js/wx.js"></script>
+    <script src="js/wxbridge.js"></script>
+    </head>
+
+<body>
+    <!-- 横屏 -->
+    <div class="orientation_set">
+        <div>
+            <img src="images/orientation.png" width="50" alt="" class='translate'>
+            <br>请将屏幕竖向浏览</div>
+    </div>
+    <!-- 从浏览器打开 -->
+     <div class="shade" style="display:none;">
+      <img src="images/direction.png" />
+          <p>请点击右上角<br>
+            使用浏览器打开下载
+        </p>
+    </div>
+    <!-- 页面开始 -->
+    <div class="wrap">
+        <div class="header">
+            <img src="images/logo.png">
+        </div>    
+        <div class="tip-title"><img src="images/title.png"></div>
+        <div class="btn-wrap">
+            <a href="javascript:;" class="button android">
+                <img src="images/button-blank.png"></a>
+            <a href="javascript:;" class="button ios">
+                <img src="images/button-blank.png"></a>
+        </div>     
+        <div class="tips">
+            
+            <ul>
+                <li>
+                    <span>&diams;&nbsp;</span>
+                    <span>专业、精准、实时</span>
+                </li>
+                <li>
+                    <span>&diams;&nbsp;</span>
+                    <span>一手掌握大盘动向</span>
+                </li>
+                <li>
+                    <span>&diams;&nbsp;</span>
+                    <span>
+                        全景监控票房排片趋势
+                    </span>
+                </li>
+                <li>
+                    <span>&diams;&nbsp;</span>
+                    <span>首度呈现影院热度排行</span>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom-bg"></div>
+        <div class="banner-pic">
+            <img src="images/banner-pic.jpg">
+        </div>
+    </div>
+<script>
+    function isWeiXin(){ 
+        var ua = window.top.navigator.userAgent.toLowerCase(); 
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+            return true; 
+        }else{ 
+            return false; 
+        } 
+    }
+    // 获取随机数
+    $(function(){
+        var share_img_url = "http://piaofang.wepiao.com/icon/iPad@2x.png";
+        WxBridge.share({
+            'imgUrl' : share_img_url, // 图片地址
+            'link' : window.location.href, // 链接地址
+            'title' : '微票儿票房分析下载', // 分享标题
+            'desc' : '微票儿票房分析－电影行业数据查询神器  piaofang.wepiao.com' // 分享内容  
+        });
+    });
+    $.ajax({
+        type : "get",
+        async:true,
+        data:{},
+        url : "http://182.254.230.72/MovieNameManage/api/appManage/0/newest",
+        dataType : "jsonp",
+        success : function(res) {
+            if(res && res.appAndroid && res.appAndroid.urlDownload){
+                $('.android').click(function(){
+                    if(isWeiXin()){
+                        $('.shade').show();
+                    }else{
+                        window.location.href = res.appAndroid.urlDownload;//'http://appnfs.wepiao.com/uploads/app_version/20/微票儿-v5.1.1-36-1100-微票儿.apk';//
+                    }
+                });
+            }
+        },
+        error : function() {
+            if(_force == 1){
+                share(share_param);
+            }
+        }
+    });
+    $(".ios").click(function(){
+        //https://appsto.re/cn/4poF-.i
+        if(isWeiXin()){
+            $('.shade').show();
+        }else{
+            window.top.location.href = 'https://itunes.apple.com/cn/app/wei-piao-er-piao-fang-fen-xi/id1048372216?mt=8';//'http://appnfs.wepiao.com/uploads/app_version/20/微票儿-v5.1.1-36-1100-微票儿.apk';//
+            //https://appsto.re/cn/4poF-.i
+        }
+    });
+    $(".shade").click(function(){
+        $(this).hide();
+    });
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','js/analytics.js','ga');
+
+    ga('create', 'UA-58583546-12', 'auto');
+    ga('send', 'pageview');
+</script>
+
+</body>
+</html>
